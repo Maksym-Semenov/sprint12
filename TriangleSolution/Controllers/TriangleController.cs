@@ -19,5 +19,9 @@ namespace Triangles.Controllers
             else
                 throw new ArgumentException();
         }
+        public bool IsEquilateral(double side1, double side2, double side3)
+        {
+            return (side1 == side2 || side1 == side3 || side2 == side3);
+        }
     }
 }
