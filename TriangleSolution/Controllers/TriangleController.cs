@@ -33,9 +33,14 @@ namespace Triangles.Controllers
         //Task_07
         public bool AreCongruent(Triangle tr1, Triangle tr2)
         {
-            return (tr1.Side1 == tr2.Side1 && tr1.Side2 == tr2.Side2 && tr1.Side3 == tr2.Side3);
+            if (IsValid(tr1) && IsValid(tr2))
+            {
+                return (tr1.Side1 == tr2.Side1 && tr1.Side2 == tr2.Side2 && tr1.Side3 == tr2.Side3);
+            }
+            else
+                throw new ArgumentException();
         }
-        private bool isValid(double side1, double side2, double side3)
+        private bool IsValid(double side1, double side2, double side3)
         {
             return (side1 + side2 >= side3
                  && side2 + side3 >= side1
@@ -43,6 +48,15 @@ namespace Triangles.Controllers
                      && side1 > 0 
                      && side2 > 0
                      && side3 > 0);
+        }
+        private bool IsValid(Triangle tr)
+        {
+            return (tr.Side1 + tr.Side2 >= tr.Side3
+                 && tr.Side2 + tr.Side3 >= tr.Side1
+                 && tr.Side1 + tr.Side3 >= tr.Side2
+                     && tr.Side1 > 0
+                     && tr.Side2 > 0
+                     && tr.Side3 > 0);
         }
     }
 }

@@ -61,13 +61,13 @@ namespace TriangleTests
         //        .Should().BeEquivalentTo(_generateOutput(side3, side2, side1, perimeter, area));
         //}
 
-        [Theory]
-        [InlineData(5, 4, 3, 6)]
-        [InlineData(7, 6, 5, 14.69690)]
-        public void Area_WithCorrectSides_ReturnsArea(double side1, double side2, double side3, double area)
-        {
-            string.Format("{0:F4}", area).Should().BeEquivalentTo(controller.Area(new Triangle(side1, side2, side3))); ;
-        }
+        //[Theory]
+        //[InlineData(5, 4, 3, 6)]
+        //[InlineData(7, 6, 5, 14.69690)]
+        //public void Area_WithCorrectSides_ReturnsArea(double side1, double side2, double side3, double area)
+        //{
+        //    string.Format("{0:F4}", area).Should().BeEquivalentTo(controller.Area(new Triangle(side1, side2, side3))); ;
+        //}
 
         //[Theory]
         //[InlineData(5, 4, 3, 12)]
@@ -107,13 +107,13 @@ namespace TriangleTests
         //    controller.IsIsosceles(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
         //}
 
-        //[Theory]
-        //[InlineData(3, 3, 6, 3, 3, 6)]
-        //[InlineData(3, 3, 6, 3, 3, 6.00002)]
-        //public void AreCongruent_WithAlmostEqualSides_ReturnsTrue(double side1, double side2, double side3, double side4, double side5, double side6)
-        //{
-        //    controller.AreCongruent(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeTrue();
-        //}
+        [Theory]
+        [InlineData(3, 3, 6, 3, 3, 6)]
+        [InlineData(3, 3, 6, 3, 3, 6.00002)]
+        public void AreCongruent_WithAlmostEqualSides_ReturnsTrue(double side1, double side2, double side3, double side4, double side5, double side6)
+        {
+            controller.AreCongruent(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeTrue();
+        }
 
         //[Theory]
         //[InlineData(3, 3, 6, 3, 4, 7)]
