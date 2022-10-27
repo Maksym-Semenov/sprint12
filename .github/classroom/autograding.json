@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Tests",
+      "setup": "cd ./TriangleSolution && ls .",
+      "run": "HOME=/home/runner DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet test --nologo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
