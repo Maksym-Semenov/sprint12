@@ -4,6 +4,6 @@ namespace Triangles.Controllers
 {
     public class TriangleController : Controller
     {
- 
+        
     }
 }
