@@ -5,6 +5,10 @@
         private double side1;
         private double side2;
         private double side3;
+        public Triangle()
+        {
+
+        }
 
         public Triangle(double side1, double side2, double side3)
         {
