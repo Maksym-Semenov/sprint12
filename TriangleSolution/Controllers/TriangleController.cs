@@ -89,7 +89,9 @@ namespace Triangles.Controllers
         {
             if (IsValid(tr) && IsValid(tr.Side1, tr.Side2, tr.Side3))
             {
-                return (tr.Side1 == tr.Side2 || tr.Side1 == tr.Side3 || tr.Side2 == tr.Side3);
+                return (IsEqualDouble(tr.Side1, tr.Side2)
+                     && IsEqualDouble(tr.Side1, tr.Side3)
+                     && IsEqualDouble(tr.Side2, tr.Side3));
             }
             else
                 throw new ArgumentException();
@@ -119,7 +121,7 @@ namespace Triangles.Controllers
                     }
                 }
             }
-            return maxArea;
+            return maxArea.ToString();
         }
         private bool IsValid(double side1, double side2, double side3)
         {
@@ -141,7 +143,7 @@ namespace Triangles.Controllers
         }
         private bool IsEqualDouble(double db1, double db2)
         {
-           return Math.Abs(db1 - db2) < 0.001;
+            return Math.Abs(db1 - db2) <= db1 * 1e-5;
         }
     }
 }
