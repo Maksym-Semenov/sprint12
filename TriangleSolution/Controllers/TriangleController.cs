@@ -39,7 +39,7 @@ namespace Triangles.Controllers
             else
                 return false;
         }
-        public StringBuilder NumbersPairwiseNotSimilar(Triangle[] triangles)
+        public string NumbersPairwiseNotSimilar(Triangle[] triangles)
         {
             StringBuilder resultString = new StringBuilder();
             int i = 0, j = 0;
@@ -49,15 +49,15 @@ namespace Triangles.Controllers
                 {
                     if (!AreSimilar(triangles[i], triangles[j]))
                     {
-                        resultString.Append($"({i + 1}, {j + 1})\n");
+                        resultString.Append($"({i + 1}, {j + 1})\r\n");
                     }
                     j++;
                 }
                 i++;
                 j = i;
             }
-            resultString.Remove(resultString.Length - 1, 1);
-            return resultString;
+            string result = resultString.ToString();
+            return  result.TrimEnd();
         }
         //Інших
         public double Area(Triangle tr)
@@ -129,6 +129,41 @@ namespace Triangles.Controllers
                 sides[1] / Perimeter(tr),
                 sides[2] / Perimeter(tr),
                 Area(tr),  Perimeter(tr));
+        }
+        public string InfoGreatestPerimeter(Triangle[] triangles)
+        {
+            double[] perimeters = new double[triangles.Length];
+
+            for (int i = 0; i < triangles.Length; i++)
+                perimeters[i] = Perimeter(triangles[i]);
+
+            Array.Sort(perimeters);
+
+            var maxPerimeter = perimeters[perimeters.Length - 1];
+
+            foreach (var tr in triangles)
+                if (Perimeter(tr) == maxPerimeter)
+                    return Info(tr);
+
+            return string.Empty;
+        }
+
+        public string InfoGreatestArea(Triangle[] triangles)
+        {
+            double[] areas = new double[triangles.Length];
+
+            for (int i = 0; i < triangles.Length; i++)
+                areas[i] = Area(triangles[i]);
+
+            Array.Sort(areas);
+
+            var maxArea = areas[areas.Length - 1];
+
+            foreach (var tr in triangles)
+                if (Area(tr) == maxArea)
+                    return Info(tr);
+
+            return string.Empty;
         }
         private bool IsValid(double side1, double side2, double side3)
         {

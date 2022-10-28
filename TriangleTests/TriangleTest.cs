@@ -77,7 +77,6 @@ namespace TriangleTests
         {
             controller.Perimeter(new Triangle(side1, side2, side3)).ToString().Should().BeEquivalentTo(perimeter.ToString());
         }
-/*
         [Theory]
         [InlineData(3, 4, 5, true)]
         [InlineData(4, 5, 6.403124, true)]
@@ -110,7 +109,7 @@ namespace TriangleTests
 
         [Theory]
         [InlineData(3, 3, 6, 3, 3, 6)]
-        [InlineData(3, 3.5, 6, 3.5, 3, 6.00002)]
+        [InlineData(3.5, 3, 6, 3, 3.5, 6.00002)]
         public void AreCongruent_WithAlmostEqualSides_ReturnsTrue(double side1, double side2, double side3, double side4, double side5, double side6)
         {
             controller.AreCongruent(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeTrue();
@@ -140,9 +139,9 @@ namespace TriangleTests
         public void AreSimilar_WithAlmostProportionalSides_ReturnsFalse(double side1, double side2, double side3, double side4, double side5, double side6)
         {
             controller.AreSimilar(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeFalse();
-        }*/
+        }
 
-        /*
+        
         [Fact]
         public void InfoGreatestPerimeter_CorrectTriangles_ReturnsStringWithData()
         {
@@ -155,9 +154,9 @@ namespace TriangleTests
         {
             controller.InfoGreatestArea(TrianglesArray)
                 .Should().BeEquivalentTo(_generateOutput(5.95, 6, 6, 17.95, 15.5));            
-        }*/
+        }
 
-        /*public static Triangle[] TrianglesArray =
+        public static Triangle[] TrianglesArray =
         new Triangle[]
         {
             new Triangle(4, 3, 5),
@@ -175,6 +174,6 @@ namespace TriangleTests
                                                   + "(1, 4)" + Environment.NewLine
                                                   + "(2, 3)" + Environment.NewLine
                                                   + "(3, 4)");
-        }*/
+        }
     }
 }
