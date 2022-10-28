@@ -7,8 +7,18 @@ using System.Text;
 
 namespace Triangles.Controllers
 {
+    public class ErrorController : Controller
+    {
+        public IActionResult Index()
+        {
+            ViewData["It is error!"] = "Hello!";
+            return View();
+        }
+    }
     public class TriangleController : Controller
     {
+
+        
         //Моє
         public double Perimeter(Triangle triangle)
         {
