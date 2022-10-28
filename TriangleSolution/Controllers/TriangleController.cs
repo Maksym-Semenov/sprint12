@@ -130,6 +130,41 @@ namespace Triangles.Controllers
                 sides[2] / Perimeter(tr),
                 Area(tr),  Perimeter(tr));
         }
+        public string InfoGreatestPerimeter(Triangle[] triangles)
+        {
+            double[] perimeters = new double[triangles.Length];
+
+            for (int i = 0; i < triangles.Length; i++)
+                perimeters[i] = Perimeter(triangles[i]);
+
+            Array.Sort(perimeters);
+
+            var maxPerimeter = perimeters[perimeters.Length - 1];
+
+            foreach (var tr in triangles)
+                if (Perimeter(tr) == maxPerimeter)
+                    return Info(tr);
+
+            return string.Empty;
+        }
+
+        public string InfoGreatestArea(Triangle[] triangles)
+        {
+            double[] areas = new double[triangles.Length];
+
+            for (int i = 0; i < triangles.Length; i++)
+                areas[i] = Area(triangles[i]);
+
+            Array.Sort(areas);
+
+            var maxArea = areas[areas.Length - 1];
+
+            foreach (var tr in triangles)
+                if (Area(tr) == maxArea)
+                    return Info(tr);
+
+            return string.Empty;
+        }
         private bool IsValid(double side1, double side2, double side3)
         {
             return (side1 + side2 >= side3
