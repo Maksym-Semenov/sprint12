@@ -25,7 +25,7 @@ namespace Triangles.Controllers
             if (IsValid(triangle))
             {
                 double[] arrayOFTrianglesSides = new Double[3];
-                Array
+                return true;
             }
             else
                 return false;
