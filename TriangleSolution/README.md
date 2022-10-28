@@ -91,5 +91,5 @@ false
 ```
 
 Each request should return an error page in case if the triangle is invalid (e.g. (10, 20, 100))
-Equality of values of double type is considered as their difference in less than 0.001 percent of first of them.
+Equality of values of double type is considered as their difference in less than 0.001 of first of them.
 Area and normalized sides should be printed with precision two symbols after dot.
