@@ -5,21 +5,6 @@ using Triangles.Filters;
 
 namespace Triangles.Controllers
 {
-<<<<<<< HEAD
-    public class ErrorController : Controller
-    {
-        public IActionResult Index()
-        {
-            ViewData["It is error!"] = "Hello!";
-            return View();
-        }
-    }
-    public class TriangleController : Controller
-    {
-
-        
-        //Моє
-=======
     [ValidationTriangle]
     public class TriangleController : Controller
     {
@@ -31,7 +16,6 @@ namespace Triangles.Controllers
         {
             return TriangleService.Area(triangle);
         }
->>>>>>> Nazar2
         public double Perimeter(Triangle triangle)
         {
             return TriangleService.Perimeter(triangle);
