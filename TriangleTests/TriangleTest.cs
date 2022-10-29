@@ -32,7 +32,7 @@ namespace TriangleTests
             controller = new TriangleController();
         }
 
-        [Theory]
+        /*[Theory]
         [InlineData(3, 4, 5, 12, 6)]
         [InlineData(5, 6, 7, 18, 14.70)]
         public void Info_WithCorrectOrderedSides_ReturnsStringWithData(double side1, double side2, double side3, double perimeter, double area)
@@ -68,7 +68,7 @@ namespace TriangleTests
         {
             string.Format("{0:F4}", area).Should().BeEquivalentTo(
                 string.Format("{0:F4}", controller.Area(new Triangle(side1, side2, side3))));
-        }
+        }*/
 
         [Theory]
         [InlineData(5, 4, 3, 12)]
@@ -78,7 +78,7 @@ namespace TriangleTests
             controller.Perimeter(new Triangle(side1, side2, side3)).ToString().Should().BeEquivalentTo(perimeter.ToString());
         }
 
-        [Theory]
+        /*[Theory]
         [InlineData(3, 4, 5, true)]
         [InlineData(4, 5, 6.403124, true)]
         [InlineData(5, 6, 7, false)]
@@ -122,7 +122,7 @@ namespace TriangleTests
         public void AreCongruent_WithNotEqualSides_ReturnsFalse(double side1, double side2, double side3, double side4, double side5, double side6)
         {
              controller.AreCongruent(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeFalse();
-        }
+        }*/
 
         [Theory]
         [InlineData(3, 3, 6, 4, 4, 8)]
@@ -145,7 +145,7 @@ namespace TriangleTests
         }
 
 
-        [Fact]
+        /*[Fact]
         public void InfoGreatestPerimeter_CorrectTriangles_ReturnsStringWithData()
         {
             controller.InfoGreatestPerimeter(TrianglesArray)
@@ -184,6 +184,6 @@ namespace TriangleTests
                                                   + "(1, 4)" + Environment.NewLine
                                                   + "(2, 3)" + Environment.NewLine
                                                   + "(3, 4)");
-        }
+        }*/
     }
 }
