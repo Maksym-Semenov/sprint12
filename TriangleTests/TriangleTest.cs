@@ -78,14 +78,14 @@ namespace TriangleTests
             controller.Perimeter(new Triangle(side1, side2, side3)).ToString().Should().BeEquivalentTo(perimeter.ToString());
         }
 
-        // [Theory]
-        // [InlineData(3, 4, 5, true)]
-        // [InlineData(4, 5, 6.403124, true)]
-        // [InlineData(5, 6, 7, false)]
-        // public void IsRightAngled_WithRCorrectSides_ReturnsWhetherRightAngled(double side1, double side2, double side3, bool isRightAngled)
-        // {
-        //     controller.IsRightAngled(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
-        // }
+        [Theory]
+        [InlineData(3, 4, 5, true)]
+        [InlineData(4, 5, 6.403124, true)]
+        [InlineData(5, 6, 7, false)]
+        public void IsRightAngled_WithRCorrectSides_ReturnsWhetherRightAngled(double side1, double side2, double side3, bool isRightAngled)
+        {
+            controller.IsRightAngled(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
+        }
 
         [Theory]
         [InlineData(3, 3, 3, true)]
@@ -97,16 +97,16 @@ namespace TriangleTests
             controller.IsEquilateral(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
         }
 
-        // [Theory]
-        // [InlineData(3, 3, 6, true)]
-        // [InlineData(6, 5, 6.00002, true)]
-        // [InlineData(6.00006, 8, 6.00016, false)]
-        // [InlineData(9, 6, 7, false)]
-        // [InlineData(9, 6, 6, true)]
-        // public void IsIsosceles_WithRCorrectSides_ReturnsWhetherIsosceles(double side1, double side2, double side3, bool isRightAngled)
-        // {
-        //     controller.IsIsosceles(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
-        // }
+        [Theory]
+        [InlineData(3, 3, 6, true)]
+        [InlineData(6, 5, 6.00002, true)]
+        [InlineData(6.00006, 8, 6.00016, false)]
+        [InlineData(9, 6, 7, false)]
+        [InlineData(9, 6, 6, true)]
+        public void IsIsosceles_WithRCorrectSides_ReturnsWhetherIsosceles(double side1, double side2, double side3, bool isRightAngled)
+        {
+            controller.IsIsosceles(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
+        }
 
         [Theory]
         [InlineData(3, 3, 6, 3, 3, 6)]
@@ -168,15 +168,15 @@ namespace TriangleTests
             new Triangle(3, 2.5, 3.5),
         };
         
-        // [Fact]
-        // public void NumbersPairwiseNotSimilar_CorrectTriangles_ReturnsPairsNotSimilar()
-        // {
-        //     controller.NumbersPairwiseNotSimilar(TrianglesArray)
-        //         .Should().BeEquivalentTo("(1, 2)" + Environment.NewLine
-        //                                           + "(1, 3)" + Environment.NewLine
-        //                                           + "(1, 4)" + Environment.NewLine
-        //                                           + "(2, 3)" + Environment.NewLine
-        //                                           + "(3, 4)");
-        // }
+        [Fact]
+        public void NumbersPairwiseNotSimilar_CorrectTriangles_ReturnsPairsNotSimilar()
+        {
+            controller.NumbersPairwiseNotSimilar(TrianglesArray)
+                .Should().BeEquivalentTo("(1, 2)" + Environment.NewLine
+                                                  + "(1, 3)" + Environment.NewLine
+                                                  + "(1, 4)" + Environment.NewLine
+                                                  + "(2, 3)" + Environment.NewLine
+                                                  + "(3, 4)");
+        }
     }
 }
