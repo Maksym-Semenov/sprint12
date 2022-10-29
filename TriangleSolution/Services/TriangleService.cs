@@ -26,74 +26,48 @@ namespace Triangles.Services
         }
         public static double Area(Triangle tr)
         {
-            if (Triangle.IsValid(tr))
-            {
-                double halfPerimeter = (tr.Side1 + tr.Side2 + tr.Side3) / 2;
+            double halfPerimeter = (tr.Side1 + tr.Side2 + tr.Side3) / 2;
                 double area = (Math.Sqrt(halfPerimeter * (halfPerimeter - tr.Side1)
                                                        * (halfPerimeter - tr.Side2)
                                                        * (halfPerimeter - tr.Side3)));
-                return area;
-            }
-            else
-                return 0;
+            return area;
         }
         public static double Perimeter(Triangle triangle)
         {
-            if (Triangle.IsValid(triangle))
-                return (triangle.Side1 + triangle.Side2 + triangle.Side3);
-            else
-                return 0;
+            return (triangle.Side1 + triangle.Side2 + triangle.Side3);
         }
         public static bool IsRightAngled(Triangle triangle)
         {
-            if (Triangle.IsValid(triangle))
-            {
-                double[] arrayOFTriangleSides = new Double[3] { triangle.Side1, triangle.Side2, triangle.Side3 };
+            double[] arrayOFTriangleSides = new Double[3] { triangle.Side1, triangle.Side2, triangle.Side3 };
                 Array.Sort(arrayOFTriangleSides);
                 double hypotenuse = arrayOFTriangleSides[2],
                     leg1 = arrayOFTriangleSides[1],
                     leg2 = arrayOFTriangleSides[0];
                 return (TriangleService.AreTwoDoublesEqual(Math.Pow(hypotenuse, 2), (Math.Pow(leg1, 2) + Math.Pow(leg2, 2))));
-            }
-            else
-                return false;
         }
         public static bool IsEquilateral(Triangle tr)
         {
-            if (Triangle.IsValid(tr))
-            {
-                return (TriangleService.AreTwoDoublesEqual(tr.Side1, tr.Side2)
-                        && TriangleService.AreTwoDoublesEqual(tr.Side1, tr.Side3)
-                        && TriangleService.AreTwoDoublesEqual(tr.Side2, tr.Side3));
-            }
-            else
-                return false;
-        }
+            return (TriangleService.AreTwoDoublesEqual(tr.Side1, tr.Side2)
+                    && TriangleService.AreTwoDoublesEqual(tr.Side1, tr.Side3)
+                    && TriangleService.AreTwoDoublesEqual(tr.Side2, tr.Side3));
+            
+    }
         public static bool IsIsosceles(Triangle triangle)
         {
-            if (Triangle.IsValid(triangle))
-            {
-                return (TriangleService.AreTwoDoublesEqual(triangle.Side1, triangle.Side2)
-                        || TriangleService.AreTwoDoublesEqual(triangle.Side1, triangle.Side3)
-                        || TriangleService.AreTwoDoublesEqual(triangle.Side2, triangle.Side3));
-            }
-            else
-                return false;
+            return (TriangleService.AreTwoDoublesEqual(triangle.Side1, triangle.Side2)
+                    || TriangleService.AreTwoDoublesEqual(triangle.Side1, triangle.Side3)
+                    || TriangleService.AreTwoDoublesEqual(triangle.Side2, triangle.Side3));
+           
         }
         public static bool AreCongruent(Triangle tr1, Triangle tr2)
         {
-            if(Triangle.IsValid(tr1) && Triangle.IsValid(tr2))
-            {
-                double[] arrayOFTriangle1Sides = new Double[3]{ tr1.Side1, tr1.Side2, tr1.Side3};
+            double[] arrayOFTriangle1Sides = new Double[3]{ tr1.Side1, tr1.Side2, tr1.Side3};
                 double[] arrayOFTriangl21Sides = new Double[3]{ tr2.Side1, tr2.Side2, tr2.Side3};
                 Array.Sort(arrayOFTriangle1Sides);
                 Array.Sort(arrayOFTriangl21Sides);
                 return (TriangleService.AreTwoDoublesEqual(arrayOFTriangle1Sides[0], arrayOFTriangl21Sides[0]) 
                         && TriangleService.AreTwoDoublesEqual(arrayOFTriangle1Sides[1], arrayOFTriangl21Sides[1]) 
                         && TriangleService.AreTwoDoublesEqual(arrayOFTriangle1Sides[2], arrayOFTriangl21Sides[2]));
-            }
-            else
-                return false;
         }
         public static bool AreSimilar(Triangle tr1, Triangle tr2)
         {
@@ -156,10 +130,8 @@ namespace Triangles.Services
                     {
                         resultString.Append($"({i + 1}, {j + 1})\r\n");
                     }
-
                     j++;
                 }
-
                 i++;
                 j = i;
             }

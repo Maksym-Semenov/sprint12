@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Triangles.Models;
 using Triangles.Services;
-using System.Text;
+using Triangles.Filters;
 
 namespace Triangles.Controllers
 {
+    [ValidationTriangle]
     public class TriangleController : Controller
     {
         public string Info(Triangle tr)
