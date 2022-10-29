@@ -3,7 +3,7 @@ using Triangles.Controllers;
 using Xunit;
 using FluentAssertions;
 using Triangles.Models;
-using System.Collections.Generic;
+
 
 namespace TriangleTests
 {
@@ -132,7 +132,7 @@ namespace TriangleTests
         {
             controller.AreSimilar(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeTrue();
         }
-
+        
         [Theory]
         [InlineData(3, 3, 6, 4, 4, 9)]
         [InlineData(10, 20, 15, 15, 12, 20)]
@@ -143,8 +143,7 @@ namespace TriangleTests
 
 
         }
-
-
+        
         [Fact]
         public void InfoGreatestPerimeter_CorrectTriangles_ReturnsStringWithData()
         {
@@ -152,20 +151,14 @@ namespace TriangleTests
                 .Should().BeEquivalentTo(_generateOutput(5, 6, 7, 18, 14.70));
 
         }
-
+        
         [Fact]
         public void InfoGreatestArea_CorrectTriangles_ReturnsStringWithData()
         {
             controller.InfoGreatestArea(TrianglesArray)
                 .Should().BeEquivalentTo(_generateOutput(5.95, 6, 6, 17.95, 15.5));
         }
-
-
-    
-
         
-       
-
         public static Triangle[] TrianglesArray =
         new Triangle[]
         {
@@ -174,7 +167,7 @@ namespace TriangleTests
             new Triangle(6, 6, 5.95),
             new Triangle(3, 2.5, 3.5),
         };
-
+        
         [Fact]
         public void NumbersPairwiseNotSimilar_CorrectTriangles_ReturnsPairsNotSimilar()
         {

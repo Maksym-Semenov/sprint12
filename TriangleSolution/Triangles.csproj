@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Triangle\IsIsoscelesAction.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Triangle\Peek.cshtml" />
+  </ItemGroup>
+
 </Project>
