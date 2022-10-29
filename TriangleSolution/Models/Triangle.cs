@@ -5,18 +5,7 @@
         private double side1;
         private double side2;
         private double side3;
-        public static bool IsValid(Triangle tr)
-        { 
-            return tr.Side1 + tr.Side2 >= tr.Side3
-                   && tr.Side2 + tr.Side3 >= tr.Side1
-                   && tr.Side1 + tr.Side3 >= tr.Side2
-                   && tr.Side1 > 0
-                   && tr.Side2 > 0
-                   && tr.Side3 > 0;
-        }
-        public Triangle()
-        {
-        }
+        public Triangle() { }
         public Triangle(double side1, double side2, double side3)
         {
             this.side1 = side1;
@@ -37,6 +26,15 @@
         {
             get { return side3; }
             set { side3 = value; }
+        }
+        public static bool IsValid(Triangle triangle)
+        { 
+            return triangle.Side1 + triangle.Side2 >= triangle.Side3
+                   && triangle.Side2 + triangle.Side3 >= triangle.Side1
+                   && triangle.Side1 + triangle.Side3 >= triangle.Side2
+                   && triangle.Side1 > 0
+                   && triangle.Side2 > 0
+                   && triangle.Side3 > 0;
         }
     }
 }

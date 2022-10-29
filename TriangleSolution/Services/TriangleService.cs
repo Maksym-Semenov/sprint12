@@ -8,21 +8,18 @@ namespace Triangles.Services
     {
         public static string Info(Triangle triangle)
         {
-            var template =
-                "Triangle:{0}({1}, {2}, {3}){0}Reduced:{0}({4:F2}, {5:F2}, {6:F2}){0}{0}Area = {7:F2}{0}Perimeter = {8}";
-            double[] sides =
-            {
-                triangle.Side1,
-                triangle.Side2,
-                triangle.Side3
-            };
+            var template = "Triangle:{0}({1}, {2}, {3}){0}Reduced:{0}({4:F2}, {5:F2}, {6:F2}){0}{0}Area = {7:F2}{0}Perimeter = {8}";
+            
+            double[] sides = { triangle.Side1, triangle.Side2, triangle.Side3 };
+            
             Array.Sort(sides);
+            
             return string.Format(template, Environment.NewLine,
-                sides[0], sides[1], sides[2],
-                sides[0] / Perimeter(triangle),
-                sides[1] / Perimeter(triangle),
-                sides[2] / Perimeter(triangle),
-                Area(triangle), Perimeter(triangle));
+                                sides[0], sides[1], sides[2],
+                                sides[0] / Perimeter(triangle),
+                                sides[1] / Perimeter(triangle),
+                                sides[2] / Perimeter(triangle),
+                                Area(triangle), Perimeter(triangle));
         }
 
         public static double Area(Triangle triangle)
@@ -36,18 +33,18 @@ namespace Triangles.Services
 
         public static double Perimeter(Triangle triangle)
         {
-            return (triangle.Side1 + triangle.Side2 + triangle.Side3);
+            return triangle.Side1 + triangle.Side2 + triangle.Side3;
         }
 
         public static bool IsRightAngled(Triangle triangle)
         {
-            double[] arrayOFTriangleSides = new Double[3] { triangle.Side1, triangle.Side2, triangle.Side3 };
-            Array.Sort(arrayOFTriangleSides);
-            double hypotenuse = arrayOFTriangleSides[2],
-                leg1 = arrayOFTriangleSides[1],
-                leg2 = arrayOFTriangleSides[0];
-            return (AreTwoDoublesEqual(Math.Pow(hypotenuse, 2),
-                (Math.Pow(leg1, 2) + Math.Pow(leg2, 2))));
+            double[] sides = { triangle.Side1, triangle.Side2, triangle.Side3 };
+            
+            Array.Sort(sides);
+            
+            double hypotenuse = sides[2], leg1 = sides[1], leg2 = sides[0];
+            
+            return AreTwoDoublesEqual(Math.Pow(hypotenuse, 2), (Math.Pow(leg1, 2) + Math.Pow(leg2, 2)));
         }
 
         public static bool IsEquilateral(Triangle triangle)
@@ -66,29 +63,34 @@ namespace Triangles.Services
 
         public static bool AreCongruent(Triangle triangle1, Triangle triangle2)
         {
-            double[] arrayOFTriangle1Sides = new Double[3] { triangle1.Side1, triangle1.Side2, triangle1.Side3 };
-            double[] arrayOFTriangl21Sides = new Double[3] { triangle2.Side1, triangle2.Side2, triangle2.Side3 };
-            Array.Sort(arrayOFTriangle1Sides);
-            Array.Sort(arrayOFTriangl21Sides);
-            return (AreTwoDoublesEqual(arrayOFTriangle1Sides[0], arrayOFTriangl21Sides[0])
-                    && AreTwoDoublesEqual(arrayOFTriangle1Sides[1], arrayOFTriangl21Sides[1])
-                    && AreTwoDoublesEqual(arrayOFTriangle1Sides[2], arrayOFTriangl21Sides[2]));
+            double[] sides1 = { triangle1.Side1, triangle1.Side2, triangle1.Side3 };
+            double[] sides2 = { triangle2.Side1, triangle2.Side2, triangle2.Side3 };
+            
+            Array.Sort(sides1);
+            Array.Sort(sides2);
+            
+            return (AreTwoDoublesEqual(sides1[0], sides2[0])
+                    && AreTwoDoublesEqual(sides1[1], sides2[1])
+                    && AreTwoDoublesEqual(sides1[2], sides2[2]));
         }
 
         public static bool AreSimilar(Triangle triangle1, Triangle triangle2)
         {
             double[] sides1 = { triangle1.Side1, triangle1.Side2, triangle1.Side3 };
             double[] sides2 = { triangle2.Side1, triangle2.Side2, triangle2.Side3 };
+            
             Array.Sort(sides1);
             Array.Sort(sides2);
+            
             double[] relations1 = { sides1[0] / sides1[1], sides1[1] / sides1[2], sides1[2] / sides1[0] };
             double[] relations2 = { sides2[0] / sides2[1], sides2[1] / sides2[2], sides2[2] / sides2[0] };
+            
             for (int i = 0; i < 3; i++)
             {
-                if (!AreTwoDoublesEqual(relations1[i], relations2[i]))
+                if (!TriangleService.AreTwoDoublesEqual(relations1[i], relations2[i]))
                     return false;
             }
-
+            
             return true;
         }
 
@@ -131,6 +133,7 @@ namespace Triangles.Services
         public static string NumbersPairwiseNotSimilar(Triangle[] triangles)
         {
             StringBuilder resultString = new StringBuilder();
+            
             int i = 0, j = 0;
             while (i < triangles.Length)
             {
@@ -140,10 +143,8 @@ namespace Triangles.Services
                     {
                         resultString.Append($"({i + 1}, {j + 1})\r\n");
                     }
-                    
                     j++;
                 }
-                
                 i++;
                 j = i;
             }

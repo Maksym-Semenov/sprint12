@@ -14,6 +14,7 @@ namespace Triangles.Filters
             try
             {
                 StringValues side1, side2, side3;
+                
                 if (context.HttpContext.Request.Query.TryGetValue("side1", out side1)
                     && context.HttpContext.Request.Query.TryGetValue("side2", out side2)
                     && context.HttpContext.Request.Query.TryGetValue("side3", out side3))
@@ -23,6 +24,7 @@ namespace Triangles.Filters
                         var doubleSide1 = Convert.ToDouble(side1);
                         var doubleSide2 = Convert.ToDouble(side2);
                         var doubleSide3 = Convert.ToDouble(side3);
+                        
                         if(!Triangle.IsValid(new Triangle(doubleSide1, doubleSide2, doubleSide3)))
                         {
                             throw new Exception("Invalid triangle");

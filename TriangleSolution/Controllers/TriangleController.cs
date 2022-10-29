@@ -8,13 +8,13 @@ namespace Triangles.Controllers
     [ValidationTriangle]
     public class TriangleController : Controller
     {
-        public string Info(Triangle tr)
+        public string Info(Triangle triangle)
         {
-            return TriangleService.Info(tr);
+            return TriangleService.Info(triangle);
         }
-        public double Area(Triangle tr)
+        public double Area(Triangle triangle)
         {
-            return TriangleService.Area(tr);
+            return TriangleService.Area(triangle);
         }
         public double Perimeter(Triangle triangle)
         {
@@ -24,21 +24,21 @@ namespace Triangles.Controllers
         {
             return TriangleService.IsRightAngled(triangle);
         }
-        public bool IsEquilateral(Triangle tr)
+        public bool IsEquilateral(Triangle triangle)
         {
-            return TriangleService.IsEquilateral(tr);
+            return TriangleService.IsEquilateral(triangle);
         }
         public bool IsIsosceles(Triangle triangle)
         {
             return TriangleService.IsIsosceles(triangle);
         }
-        public bool AreCongruent(Triangle tr1, Triangle tr2)
+        public bool AreCongruent(Triangle triangle1, Triangle triangle2)
         {
-            return TriangleService.AreCongruent(tr1, tr2);
+            return TriangleService.AreCongruent(triangle1, triangle2);
         }
-        public bool AreSimilar(Triangle tr1, Triangle tr2)
+        public bool AreSimilar(Triangle triangle1, Triangle triangle2)
         {
-            return TriangleService.AreSimilar(tr1, tr2);
+            return TriangleService.AreSimilar(triangle1, triangle2);
         }
         public string InfoGreatestPerimeter(Triangle[] triangles)
         {
