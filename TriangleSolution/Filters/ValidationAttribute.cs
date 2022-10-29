@@ -32,7 +32,7 @@ namespace Triangles.Filters
             }
             catch (Exception e)
             {
-                context.Result = new OkObjectResult(new {Error = e.Message});
+                context.Result = new BadRequestObjectResult(e.Message);
             }
         }
     }
