@@ -32,7 +32,7 @@ namespace TriangleTests
             controller = new TriangleController();
         }
 
-        /*[Theory]
+        [Theory]
         [InlineData(3, 4, 5, 12, 6)]
         [InlineData(5, 6, 7, 18, 14.70)]
         public void Info_WithCorrectOrderedSides_ReturnsStringWithData(double side1, double side2, double side3, double perimeter, double area)
@@ -68,7 +68,7 @@ namespace TriangleTests
         {
             string.Format("{0:F4}", area).Should().BeEquivalentTo(
                 string.Format("{0:F4}", controller.Area(new Triangle(side1, side2, side3))));
-        }*/
+        }
 
         [Theory]
         [InlineData(5, 4, 3, 12)]
@@ -78,14 +78,14 @@ namespace TriangleTests
             controller.Perimeter(new Triangle(side1, side2, side3)).ToString().Should().BeEquivalentTo(perimeter.ToString());
         }
 
-        /*[Theory]
-        [InlineData(3, 4, 5, true)]
-        [InlineData(4, 5, 6.403124, true)]
-        [InlineData(5, 6, 7, false)]
-        public void IsRightAngled_WithRCorrectSides_ReturnsWhetherRightAngled(double side1, double side2, double side3, bool isRightAngled)
-        {
-            controller.IsRightAngled(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
-        }
+        // [Theory]
+        // [InlineData(3, 4, 5, true)]
+        // [InlineData(4, 5, 6.403124, true)]
+        // [InlineData(5, 6, 7, false)]
+        // public void IsRightAngled_WithRCorrectSides_ReturnsWhetherRightAngled(double side1, double side2, double side3, bool isRightAngled)
+        // {
+        //     controller.IsRightAngled(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
+        // }
 
         [Theory]
         [InlineData(3, 3, 3, true)]
@@ -97,16 +97,16 @@ namespace TriangleTests
             controller.IsEquilateral(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
         }
 
-        [Theory]
-        [InlineData(3, 3, 6, true)]
-        [InlineData(6, 5, 6.00002, true)]
-        [InlineData(6.00006, 8, 6.00016, false)]
-        [InlineData(9, 6, 7, false)]
-        [InlineData(9, 6, 6, true)]
-        public void IsIsosceles_WithRCorrectSides_ReturnsWhetherIsosceles(double side1, double side2, double side3, bool isRightAngled)
-        {
-            controller.IsIsosceles(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
-        }
+        // [Theory]
+        // [InlineData(3, 3, 6, true)]
+        // [InlineData(6, 5, 6.00002, true)]
+        // [InlineData(6.00006, 8, 6.00016, false)]
+        // [InlineData(9, 6, 7, false)]
+        // [InlineData(9, 6, 6, true)]
+        // public void IsIsosceles_WithRCorrectSides_ReturnsWhetherIsosceles(double side1, double side2, double side3, bool isRightAngled)
+        // {
+        //     controller.IsIsosceles(new Triangle(side1, side2, side3)).Should().Be(isRightAngled);
+        // }
 
         [Theory]
         [InlineData(3, 3, 6, 3, 3, 6)]
@@ -122,7 +122,7 @@ namespace TriangleTests
         public void AreCongruent_WithNotEqualSides_ReturnsFalse(double side1, double side2, double side3, double side4, double side5, double side6)
         {
              controller.AreCongruent(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeFalse();
-        }*/
+        }
 
         [Theory]
         [InlineData(3, 3, 6, 4, 4, 8)]
@@ -132,7 +132,7 @@ namespace TriangleTests
         {
             controller.AreSimilar(new Triangle(side1, side2, side3), new Triangle(side4, side5, side6)).Should().BeTrue();
         }
-
+        
         [Theory]
         [InlineData(3, 3, 6, 4, 4, 9)]
         [InlineData(10, 20, 15, 15, 12, 20)]
@@ -143,29 +143,22 @@ namespace TriangleTests
 
 
         }
-
-
-        /*[Fact]
+        
+        [Fact]
         public void InfoGreatestPerimeter_CorrectTriangles_ReturnsStringWithData()
         {
             controller.InfoGreatestPerimeter(TrianglesArray)
                 .Should().BeEquivalentTo(_generateOutput(5, 6, 7, 18, 14.70));
 
         }
-
+        
         [Fact]
         public void InfoGreatestArea_CorrectTriangles_ReturnsStringWithData()
         {
             controller.InfoGreatestArea(TrianglesArray)
                 .Should().BeEquivalentTo(_generateOutput(5.95, 6, 6, 17.95, 15.5));
         }
-
-
-    
-
         
-       
-
         public static Triangle[] TrianglesArray =
         new Triangle[]
         {
@@ -174,16 +167,16 @@ namespace TriangleTests
             new Triangle(6, 6, 5.95),
             new Triangle(3, 2.5, 3.5),
         };
-
-        [Fact]
-        public void NumbersPairwiseNotSimilar_CorrectTriangles_ReturnsPairsNotSimilar()
-        {
-            controller.NumbersPairwiseNotSimilar(TrianglesArray)
-                .Should().BeEquivalentTo("(1, 2)" + Environment.NewLine
-                                                  + "(1, 3)" + Environment.NewLine
-                                                  + "(1, 4)" + Environment.NewLine
-                                                  + "(2, 3)" + Environment.NewLine
-                                                  + "(3, 4)");
-        }*/
+        
+        // [Fact]
+        // public void NumbersPairwiseNotSimilar_CorrectTriangles_ReturnsPairsNotSimilar()
+        // {
+        //     controller.NumbersPairwiseNotSimilar(TrianglesArray)
+        //         .Should().BeEquivalentTo("(1, 2)" + Environment.NewLine
+        //                                           + "(1, 3)" + Environment.NewLine
+        //                                           + "(1, 4)" + Environment.NewLine
+        //                                           + "(2, 3)" + Environment.NewLine
+        //                                           + "(3, 4)");
+        // }
     }
 }
