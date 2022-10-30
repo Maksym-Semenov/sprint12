@@ -5,7 +5,6 @@ using Triangles.Filters;
 
 namespace Triangles.Controllers
 {
-
     [ValidationTriangle]
     public class TriangleController : Controller
     {
@@ -27,11 +26,11 @@ namespace Triangles.Controllers
         }
         public bool IsEquilateral(Triangle triangle)
         {
-            return IsEquilateral(triangle);
+            return TriangleService.IsEquilateral(triangle);
         }
         public bool IsIsosceles(Triangle triangle)
         {
-            return IsIsosceles(triangle);
+            return TriangleService.IsIsosceles(triangle);
         }
         public bool AreCongruent(Triangle triangle1, Triangle triangle2)
         {
@@ -48,8 +47,6 @@ namespace Triangles.Controllers
         public string InfoGreatestArea(Triangle[] triangles)
         {
             return TriangleService.InfoGreatestArea(triangles);
-                Area(tr), Perimeter(tr));
-                Area(tr), Perimeter(tr));
         }
         public string NumbersPairwiseNotSimilar(Triangle[] triangles)
         {
